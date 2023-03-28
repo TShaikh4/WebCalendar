@@ -1,0 +1,118 @@
+<!-- used emmet shortcut "!" to generate this standard html information-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!--this tag specifies the character encoding used for the document.-->
+     <meta charset="UTF-8">
+     <!--This tag provides instructions to the web browser on how to handle the page, IE-Edge tells internet explorer to use its newest rendering engine-->
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <!--This tag sets the viewport properties. The value "width=device-width" sets the width of the viewport to the width of the device, while "initial-scale=1.0" sets the initial zoom level to 100%-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="calendar.css">
+     <title>Talha Shaikh Calendar</title>
+     <!-- changing the website icon displayed on the browser-->
+     <link rel="website icon" type="png" href="calicon.png">
+     
+</head>
+
+<body>
+     
+     <div class="heading">
+     <h1>My Calendar</h1>
+     </div>
+
+    <div class="calendar">
+      <!-- Calendar navigation -->
+      <div class="nav">
+        <button id="prevMonth">Previous</button>
+        <span id="currentMonth"></span>
+        <button id="nextMonth">Next</button>
+      </div>
+      
+      <!-- Calendar days of the week -->
+      <div class="daysOfWeek">
+        <div class="dayOfWeek">Sunday</div>
+        <div class="dayOfWeek">Monday</div>
+        <div class="dayOfWeek">Tueday</div>
+        <div class="dayOfWeek">Wednesday</div>
+        <div class="dayOfWeek">Thursday</div>
+        <div class="dayOfWeek">Friday</div>
+        <div class="dayOfWeek">Saturday</div>
+      </div>
+      
+      <!-- Calendar weeks -->
+      <div class="weeks"></div>
+
+      <!--refernce to javascript file (fills in calendar)-->
+      <script src="calendar.js"></script>
+
+      <!-- creating a new event -->
+      <div class="heading">
+          <h2>Do you wish to create a new event?</h2>
+      </div>
+
+      <form>
+      <!-- asking for the date-->
+      <div class="Prompt">
+          <label for="event-date">Select a date</label>
+          <input type="date" id="event-date" name="event-date">
+      </div>
+       
+      <!--asking for the time-->
+     <div class="Prompt">
+          <label for="appt">Select a time:</label>
+          <input type="time" id="appt" name="appt">
+     </div>
+
+     <!-- asking for the alert-->
+     <div class="Prompt">
+          <!-- decided to be creative! and use a slider-->
+          <p>use the slider to indicate how long before your event you want to be alerted</p>
+          <!--creating the slider-->
+          <label for="countdown"> Time in hours for alert (between 0 and 10):</label>
+          <input type="range" id="countdown" name="countdown" min="0" max="10" step="1">
+          <!-- span element used to display the value and we give it an ID name-->
+          <span id="slider-value"></span>
+          
+          <script>
+          //just a few lines of JS to get this value display to work 
+          //get the slider element and the value display element
+          //using getelement byid to refernce the values we want and put them in a variable
+          const slider = document.getElementById("countdown");
+          const valueDisplay = document.getElementById("slider-value");
+
+          // intializing to current value of the slider
+          valueDisplay.innerText = slider.value;
+
+          // using an addeventlistener to detect when the slider value changers and then just displaying the current value
+          slider.addEventListener("input", () => {
+          valueDisplay.innerText = slider.value;});
+          </script>
+     </div>
+
+     <!-- asking for event description-->
+     <div class="prompt">
+          <label for="Description">Description:</label>
+          <input type="text" id="Description" name="Description">
+     </div>
+    </div>
+    
+    <!-- lettting user submit info-->
+    <div class = "prompt">
+     <input type="submit">
+    </div>
+</form>
+    
+    <!-- displaying the created event-->
+    <script>
+     document.getElementById("prompt").addEventListener("click", function(){
+          const date = document.getElementById('event-date').value;
+          const time = document.getElementById('appt').value;
+          const countdown = document.getElementById('countdown').value;
+          document.write("you have created an event on "+ date +" at "+ time +"with an alert of "+ countdown +" hours before")
+     })
+     </script>
+     
+
+</body>
+</html>

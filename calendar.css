@@ -1,0 +1,54 @@
+
+/* Customize the calendar styles here */
+.calendar {
+border: 10px solid rgb(226, 25, 25);
+padding: 10px;
+color: rgb(0, 0, 0);
+text-align:center;
+}
+          
+.week {
+display: flex;
+text-align: justify;
+}
+          
+.day {
+flex: 1;
+border: 1px solid black;
+padding: 25px;
+text-align: center;
+color: blueviolet;
+}
+          
+.currentMonth {
+font-weight: bold;
+}
+          
+.prevMonth,.nextMonth {
+color: gray;
+}
+          
+.daysOfWeek {
+display: flex;
+justify-content: space-between;
+margin-bottom: 10px;
+font-size: 20px; 
+padding: 0 50px; 
+text-decoration: underline;
+
+}
+
+.nav{
+     background-color: rgb(37, 15, 158);
+     color: white;
+     font-size: 24px;
+}
+
+.heading{
+     text-align: center;
+     background-color: rgb(124, 167, 222);
+}
+
+.prompt{
+     color: black;
+}
